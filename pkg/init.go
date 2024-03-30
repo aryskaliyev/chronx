@@ -89,8 +89,7 @@ func getNewToken(config *oauth2.Config) (*oauth2.Token, error) {
 	var authCode string
 
 	if _, err := fmt.Scan(&authCode); err != nil {
-		return &oauth2.Token{}
-		fmt.Errorf("unable to read auth code: %s", err)
+		return &oauth2.Token{}, fmt.Errorf("unable to read auth code: %s", err)
 	}
 
 	token, err := config.Exchange(context.TODO(), authCode)
