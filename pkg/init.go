@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"runtime"
 
 	"github.com/fatih/color"
 	"golang.org/x/oauth2"
