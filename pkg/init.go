@@ -102,7 +102,7 @@ func getNewToken(config *oauth2.Config) (*oauth2.Token, error) {
 func getOS() {
 	OS := runtime.GOOS
 	if OS == "windows" {
-		tokenStash = os.Getenv(LOCALAPPDATA) + "\\chronxToken.json"
+		tokenStash = os.Getenv("LOCALAPPDATA") + "\\chronxToken.json"
 	} else {
 		tokenStash = "/tmp/chronxToken.json"
 	}
