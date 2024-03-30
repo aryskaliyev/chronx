@@ -1,6 +1,9 @@
 package cmd
 
-import ()
+import (
+	"chronx/pkg"
+	"github.com/spf13/cobra"
+)
 
 var list string
 
