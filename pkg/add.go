@@ -2,8 +2,11 @@ package pkg
 
 import (
 	"context"
+	"fmt"
 	"google.golang.org/api/calendar/v3"
 	"google.golang.org/api/option"
+	"log"
+	"regexp"
 	"time"
 )
 
@@ -56,10 +59,10 @@ func AddEvent(title, description, colorId, start, end string) {
 		Summary:     title,
 		Description: description,
 		Start: &calendar.EventDateTime{
-			DateTime: time.Date(startTime.Year(), startTime.Month(), startTime.Day(), startTime.Hour().startTime.Minute(), startTime.Second(), 0, time.Now().Location()).Format(time.RFC3339),
+			DateTime: time.Date(startTime.Year(), startTime.Month(), startTime.Day(), startTime.Hour(), startTime.Minute(), startTime.Second(), 0, time.Now().Location()).Format(time.RFC3339),
 		},
 		End: &calendar.EventDateTime{
-			DateTime: time.Date(endTime.Year(), endTime.Month(), endTime.Day(), endTime.Hour().endTime.Minute(), endTime.Second(), 0, time.Now().Location()).Format(time.RFC3339),
+			DateTime: time.Date(endTime.Year(), endTime.Month(), endTime.Day(), endTime.Hour(), endTime.Minute(), endTime.Second(), 0, time.Now().Location()).Format(time.RFC3339),
 		},
 		ColorId: colorId,
 	}

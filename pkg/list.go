@@ -2,6 +2,7 @@ package pkg
 
 import (
 	"context"
+	"fmt"
 	"google.golang.org/api/calendar/v3"
 	"google.golang.org/api/option"
 	"log"
@@ -33,7 +34,7 @@ func GetEvents() {
 	} else {
 		fmt.Println("Upcoming vents (today):")
 		for _, event := range events.Items {
-			start, err := time.Parse(time.RFC3339, event.Start.Datetime)
+			start, err := time.Parse(time.RFC3339, event.Start.DateTime)
 			if err != nil {
 				log.Fatalf("Unable to parse start time: %v", err)
 			}
@@ -67,7 +68,7 @@ func GetOneEvent(list string) {
 		if event.Description != "" {
 			fmt.Println("- Description: ", event.Description)
 		}
-		start, _ := time.Parse(time.RFC3339, event.Start.Datetime)
+		start, _ := time.Parse(time.RFC3339, event.Start.DateTime)
 		fmt.Println("- Start time", start.Format("15:04"))
 		if event.HangoutLink != "" {
 			fmt.Println("- MeetLink: ", event.HangoutLink)
